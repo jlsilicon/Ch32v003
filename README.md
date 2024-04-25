@@ -14,5 +14,5 @@ Arduino :
 * Ch32v003_BlinkD4_UartHello
 * Ch32v003_PSRAM_Spi_BitBang : for Aps6404 / Ips6404 PSRAM Chips
   
--- these are drop ins for Arduino IDE
+-- these are drop-ins for Arduino IDE.
   
