@@ -2,10 +2,8 @@
 /// : CH32 : ch32_PSRAM_Spi_BitBang.ino : ///
 
 /*
-  FAQS: 
-  * - Pinout was backwards 
-  * - SPI_Transfer() : Loop needed to be H->L (was Wrong L->H )
-  * - needs delay() between SPI Bits 
+  - uses Aps6404 / Ips6404 
+  - compatible with SEEP chips 
 */
 
 /*
