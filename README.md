@@ -1,6 +1,7 @@
 # Ch32v003
 Working Projects for Ch3v003 on MounRiverStudio
--- Also Arduino Examples :
+-- Also Arduino Examples 
+-- Tested on Ch32v003f4p6 
 
 
 MounRiverStudio :
