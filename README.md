@@ -7,7 +7,7 @@ Working Projects for Ch3v003 on MounRiverStudio
 
 #
 
-MounRiverStudio :
+MounRiverStudio Ch3v103 :
 * ADC_Ex
 * GPIO_Toggle
 
@@ -21,3 +21,13 @@ Arduino :
 
 -- these are drop-ins for Arduino IDE.
   
+#
+
+Ch32v203 : 
+* ADC_DMA
+* GPIO_Toggle
+* TouchPINKey
+* USBCompositeKM - USB Keyboard & Mouse plugin Devices
+* USB-Disk - USN Disk plugin Device
+  
+#
