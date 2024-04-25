@@ -4,6 +4,13 @@
 /*
   - uses Aps6404 / Ips6404 
   - compatible with SEEP chips 
+
+  Aps6404 / Ips6404 Pinout -> Arduino Pins : 
+    PC0 -> #CE=ss \/  +Vcc=3.3V -- +vdd 
+    PC7 <- miSO       sio3 
+           sio2       SCLK <- PC5 
+    -gnd - -Gnd       moSI <- PC6 
+
 */
 
 /*
