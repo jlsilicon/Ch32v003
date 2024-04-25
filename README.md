@@ -34,5 +34,7 @@ Ch32v203 :
 * TouchPINKey
 * USBCompositeKM - USB Keyboard & Mouse plugin Devices
 * USB-Disk - USN Disk plugin Device
+
+-- These need to be created as Projects on IDE - then drop the main.c files into the /projectname/User/.
   
 #
