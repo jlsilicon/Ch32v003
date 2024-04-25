@@ -1,13 +1,15 @@
 # Ch32v003
-Working Projects for Ch3v003 on MounRiverStudio
+Working Projects for Ch32v003 on MounRiverStudio
 
 -- Also Arduino Examples 
 
--- Tested on Ch32v003f4p6 
+-- Tested on Ch32v003-f4p6 
+
+-- Tested on Ch32v203-c8t6 
 
 #
 
-MounRiverStudio Ch3v103 :
+MounRiverStudio Ch32v003 :
 * ADC_Ex
 * GPIO_Toggle
 
