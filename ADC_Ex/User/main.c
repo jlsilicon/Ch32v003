@@ -55,11 +55,11 @@ void ADCConfig(void)
     ADC_ResetCalibration(ADC1);
 
     while (ADC_GetResetCalibrationStatus(ADC1))
-        ;
+      {}
 
     ADC_StartCalibration(ADC1);
     while (ADC_GetCalibrationStatus(ADC1))
-        ;
+      {}
 
 }
 
