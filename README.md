@@ -11,7 +11,7 @@ MounRiverStudio :
 * ADC_Ex
 * GPIO_Toggle
 
--- These need to be created as Projects on IDE - then drop the main.c files into the /<projectname>/User/.
+-- These need to be created as Projects on IDE - then drop the main.c files into the /projectname/User/.
 
 #
 
