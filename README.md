@@ -12,6 +12,9 @@ Working Projects for Ch32v003 & Ch32v203 on MounRiverStudio
 MounRiverStudio Ch32v003 :
 * ADC_Ex
 * GPIO_Toggle
+* I2C_MPU6050 - converted from :
+ -- https://bbs.21ic.com/icview-3129252-1-1.html
+ -- https://www.risc-v1.com/thread-1625-1-1.html
 
 -- These need to be created as Projects on IDE - then drop the main.c files into the /projectname/User/.
 
