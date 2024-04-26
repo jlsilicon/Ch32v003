@@ -3,7 +3,7 @@ This seems close to working.
 I am getting cms / data back and forth , but only Reading 0 zeroes from hip.
 
 : SPI_PSRM_203 :
-- SystemClk:96000000
+== SystemClk:96000000
 = main() : -> SPI_FullDuplex_Init()
 = main() : Host Mode
 = main() : copying Str_=*Psram* : ABCdefghijklmnopqrstunWXYZ_0123456789_***
