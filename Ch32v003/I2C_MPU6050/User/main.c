@@ -4,7 +4,7 @@ The VCC and GND pins of the CH32V103 development board are connected to the VCC 
  PA1 = SDA : The PA1 pin of the CH32V103 development board is connected to the SDA pin of the MPU6050 module
  PA2 = SCL : The PA2 pin of the CH32V103 development board is connected to the SCL pin of the MPU6050 module
 
-Mpu6050 : Id Address = 0x58 wrt , 0x59 rd
+Mpu6050 : Id Address = 0x68 wrt , 0x69 rd
 
  - Compiles Downloads , Returns same data : Temp=175, AX=-11823 , AY=-11823 , AZ=-11823 , GX=-11823 , AGY=-11823 , GZ=-11823
 
@@ -244,8 +244,8 @@ u8 MPU_Init(void)
     MPU_Write_Byte(MPU_PWR_MGMT1_REG,0X80); //MPU6050
     Delay_Ms(100);
     MPU_Write_Byte(MPU_PWR_MGMT1_REG,0X00); //MPU6050
-    MPU_Set_Gyro_Fsr(3);                    //隆脌2000dps
-    MPU_Set_Accel_Fsr(0);                   //隆脌2g
+    MPU_Set_Gyro_Fsr(3);                    //2000dps
+    MPU_Set_Accel_Fsr(0);                   //2g
     MPU_Set_Rate(50);                       //50Hz
     MPU_Write_Byte(MPU_INT_EN_REG,0X00);    //
     MPU_Write_Byte(MPU_USER_CTRL_REG,0X00); //I2C
@@ -694,7 +694,7 @@ u8 AT24CXX_ReadOneByte(u16 ReadAddr)
 
     while( !I2C_CheckEvent( I2C1, I2C_EVENT_MASTER_MODE_SELECT ) );
 // //    I2C_Send7bitAddress( I2C1, 0XA0, I2C_Direction_Transmitter );
-    I2C_Send7bitAddress( I2C1, 0X58, I2C_Direction_Transmitter );
+    I2C_Send7bitAddress( I2C1, 0X68, I2C_Direction_Transmitter );
 
     while( !I2C_CheckEvent( I2C1, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED ) );
 
@@ -719,7 +719,7 @@ u8 AT24CXX_ReadOneByte(u16 ReadAddr)
 
     while( !I2C_CheckEvent( I2C1, I2C_EVENT_MASTER_MODE_SELECT ) );
 // //    I2C_Send7bitAddress( I2C1, 0XA0, I2C_Direction_Receiver );
-    I2C_Send7bitAddress( I2C1, 0X58, I2C_Direction_Receiver );
+    I2C_Send7bitAddress( I2C1, 0X68, I2C_Direction_Receiver );
 
     while( !I2C_CheckEvent( I2C1, I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED ) );
   while( I2C_GetFlagStatus( I2C1, I2C_FLAG_RXNE ) ==  RESET )
@@ -748,7 +748,7 @@ void AT24CXX_WriteOneByte(u16 WriteAddr, u8 DataToWrite)
 
     while( !I2C_CheckEvent( I2C1, I2C_EVENT_MASTER_MODE_SELECT ) );
 // //    I2C_Send7bitAddress( I2C1, 0XA0, I2C_Direction_Transmitter );
-    I2C_Send7bitAddress( I2C1, 0X58, I2C_Direction_Transmitter );
+    I2C_Send7bitAddress( I2C1, 0X68, I2C_Direction_Transmitter );
 
     while( !I2C_CheckEvent( I2C1, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED ) );
 
