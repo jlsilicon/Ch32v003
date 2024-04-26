@@ -11,6 +11,85 @@ The VCC and GND pins of the CH32V103 development board are connected to the VCC 
 
 */
 
+///
+
+// iic.h : //
+
+#ifndef __I2C_H
+#define __I2C_H
+
+// #include "ch32v10x.h"
+#include "ch32v00x.h"
+
+void I2C1_Init(void);
+
+#endif  /* __I2C_H */
+
+///
+
+// iic.c : //
+
+// #include "i2c.h"
+
+/*****************************************************
+ * @brief   I2C1 SCL SDA
+ * @note    PB8 IIC1 SCL PB9 IIC1 SDA
+ * @param
+ * @retval
+*****************************************************/
+
+static void I2C1_GPIO_Config(void)
+{
+/*
+    GPIO_InitTypeDef GPIO_InitStruce;   //IIC1 GPIO
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB | RCC_APB2Periph_AFIO,ENABLE);  //GPIOB、RCC
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2C1,ENABLE);                         //I2C1 RCC
+
+    GPIO_PinRemapConfig(GPIO_Remap_I2C1, ENABLE);   //I2C1
+
+    GPIO_InitStruce.GPIO_Mode = GPIO_Mode_AF_OD;    //
+    GPIO_InitStruce.GPIO_Speed = GPIO_Speed_10MHz;
+    GPIO_InitStruce.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9;
+    GPIO_Init(GPIOB, &GPIO_InitStruce);
+*/
+}
+
+
+/*****************************************************
+ * @brief   I2C1
+ * @note    SCL 400KHz,IIC 2:1,0x52,
+ * @param
+ * @retval
+*****************************************************/
+static void I2C1_Mode_Config(void)
+{
+    I2C_InitTypeDef I2C_InitStruce;                 //定义IIC1
+
+    I2C_InitStruce.I2C_Mode                = I2C_Mode_I2C;         //I2C
+    I2C_InitStruce.I2C_ClockSpeed          = 400000;         //SCL 400KHz
+    I2C_InitStruce.I2C_OwnAddress1         = 0x52;          //0x52
+    I2C_InitStruce.I2C_Ack                 = I2C_Ack_Enable;        //
+    I2C_InitStruce.I2C_DutyCycle           = I2C_DutyCycle_2; //2:1
+    I2C_InitStruce.I2C_AcknowledgedAddress = I2C_AcknowledgedAddress_7bit;  //7
+    I2C_Init(I2C1, &I2C_InitStruce);                //I2C1
+}
+
+/*****************************************************
+ * @brief   I2C1
+ * @note
+ * @param
+ * @retval
+*****************************************************/
+void I2C1_Init(void)
+{
+    I2C1_GPIO_Config();     //I2C1
+    I2C1_Mode_Config();     //I2C1
+    I2C_Cmd(I2C1, ENABLE);  //I2C1
+}
+
+
+///
+
 
 #ifndef __MPU6050_H
 #define __MPU6050_H
@@ -240,7 +319,7 @@ void  IIC_Init(u32 bound, u16 address)
 // u8  MPU_Init(void)
 {
     GPIO_InitTypeDef GPIO_InitStructure={0};
-    I2C_InitTypeDef I2C_InitTSturcture={0};
+    I2C_InitTypeDef  I2C_InitTSturcture={0};
 
     RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOC | RCC_APB2Periph_AFIO, ENABLE );
     RCC_APB1PeriphClockCmd( RCC_APB1Periph_I2C1, ENABLE );
@@ -255,8 +334,8 @@ void  IIC_Init(u32 bound, u16 address)
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init( GPIOC, &GPIO_InitStructure );
 
-    I2C_InitTSturcture.I2C_ClockSpeed  = bound;
     I2C_InitTSturcture.I2C_Mode        = I2C_Mode_I2C;
+    I2C_InitTSturcture.I2C_ClockSpeed  = bound;
     I2C_InitTSturcture.I2C_DutyCycle   = I2C_DutyCycle_2;
     I2C_InitTSturcture.I2C_OwnAddress1 = address;
     I2C_InitTSturcture.I2C_Ack         = I2C_Ack_Enable;
@@ -333,8 +412,10 @@ u8 MPU_Set_Rate(u16 rate)
 {
 u8 data;
 
-if(rate>1000)rate=1000;
-    if(rate<4)rate=4;
+    if(rate>1000)
+        rate=1000;
+    if(rate<4)
+        rate=4;
     data=1000/rate-1;
     data=MPU_Write_Byte(MPU_SAMPLE_RATE_REG,data);  //
 
@@ -381,6 +462,7 @@ u8 buf[6],res;
         *ax = ((u16)buf[0]<<8) | buf[1];
         *ay = ((u16)buf[2]<<8) | buf[3];
         *az = ((u16)buf[4]<<8) | buf[5];
+
         printf("ACC  : X=%d , Y=%d , Z=%d  \r\n", *ax , *ay , *az );
     }
 
@@ -436,6 +518,7 @@ u8 MPU_Read_Len(u8 addr,u8 reg,u8 len,u8 *buf)
             * buf = IIC_ReadByte(0);//nACK
         else
             * buf = IIC_ReadByte(1);     //ACK
+printf( " <%02X> " , * buf );
         len--;
         buf++;
     }
@@ -484,6 +567,8 @@ u8 res;
 
     IIC_Stop();         // STOP
 
+printf( " <%02X> " , res );
+
 return res;
 }
 
@@ -498,7 +583,9 @@ short temp;                 //
         Delay_Init();
         USART_Printf_Init(115200);
 //        MPU_Init();                //MPU6050
-        IIC_Init( 100000, 0xA0);
+//        IIC_Init( 100000, 0xA0 );
+        IIC_Init( 100000, 0x68 );
+//        IIC_Init( 100000, 0x69 );
 
         printf("\r\n\r\n: MPU6050 TEST : \r\n\r\n");
         printf("- SystemClk : %d \r\n\r\n\r\n",SystemCoreClock);
