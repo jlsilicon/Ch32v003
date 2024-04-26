@@ -349,7 +349,7 @@ void  IIC_Init(u32 bound, u16 address)
 //    IIC_SendByte( ENABLE ) ;  // - ???
 
 //    I2C_AcknowledgeConfig( I2C1, ENABLE );
-//    IIC_WaitAck();     //等待应答 // - ???
+//    IIC_WaitAck();     // - ???
     while( I2C_GetFlagStatus( I2C1, I2C_FLAG_BUSY ) != RESET ) {} // - ???
 
     // ??? :
