@@ -10,7 +10,7 @@ This seems close to working.
      Gnd ->  Gnd      MOSI <- PA5
     --
 
-I am getting cmds/data to/from chip , but only Reading 0 zeroes from the chip.
+I am getting cmds/data to/from chip , but only Reading 0 zeroes from the chip , including its ChipId.
 
 Below is the Output :
 
@@ -35,6 +35,9 @@ Below is the Output :
 = main() : SPI send Cmd WRT=0x02 : , Adr HIGH=00  , Adr MID=00  , Adr LOW=00
 = main() : SPI send Str_=*Psram* : ABCdefghijklmnopqrstunWXYZ_0123456789_***
 = main() : SPI NSS=->H
+
+= main() : SPI Toggle PA4=->H->L
+= main() : SPI send Cmd RD_ID=0x9F : Adr HIGH=00  , Adr MID=00  , Adr LOW=00 : ID=x00  x00
 
 = main() : SPI Toggle PA4=->H->L
 = main() : SPI send Cmd RD=0x03 : , Adr HIGH=00  , Adr MID=00  , Adr LOW=00
