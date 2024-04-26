@@ -1,5 +1,12 @@
 This seems close to working.
 
+ Wiring :
+   PSRAM Aps6404 :
+     PA4 -> !SS  \/  Vcc <- 3V3
+     PA6 -> !SS  \/  DIO3   nc
+     nc    DIO2  \/  Vcc <- PA7
+     Gnd -> Gnd  \/  Vcc <- PA5
+
 I am getting cmds/data to/from chip , but only Reading 0 zeroes from the chip.
 
 Below is the Output :
