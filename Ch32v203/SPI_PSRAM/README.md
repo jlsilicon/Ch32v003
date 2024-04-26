@@ -7,7 +7,7 @@ Below is the Output :
 --
 
 
-: SPI_PSRM_203 :
+: SPI_PSRAM_203 :
 == SystemClk:96000000
 = main() : -> SPI_FullDuplex_Init()
 = main() : Host Mode
