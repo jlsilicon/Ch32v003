@@ -3,7 +3,8 @@ This seems close to working.
 I am getting cmds/data to/from chip , but only Reading 0 zeroes from the chip.
 
 Below is the Output :
-:
+
+--
 
 
 : SPI_PSRM_203 :
