@@ -1,6 +1,9 @@
 This seems close to working.
 
-I am getting cms / data back and forth , but only Reading 0 zeroes from hip.
+I am getting cms / data back and forth , but only Reading 0 zeroes from chip.
+
+Below is the Output :
+
 
 : SPI_PSRM_203 :
 == SystemClk:96000000
