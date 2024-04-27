@@ -15,7 +15,18 @@ Setup(): -> strcpy_()
 ---
    SPI RAM:
 - Reading
- <42=x2A< Blink
+ <42=x2A< 
+ Blink
+
+Wiring :
+
+ PSRAM Aps6404 :
+--
+ PA4 ->  !SS  \/  Vcc  <- 3V3
+ PA6 -> MISO      DIO3   nc
+ nc     DIO2      Vcc  <- PA7
+ Gnd ->  Gnd      MOSI <- PA5
+--
 
  */
 
