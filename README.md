@@ -12,7 +12,9 @@ Working Projects for Ch32v003 & Ch32v203 on MounRiverStudio
 MounRiverStudio Ch32v003 :
 * ADC_Ex
 * GPIO_Toggle
-* I2C_MPU6050 - converted from :
+* SPI_PSRAM_BitBang : for Aps6404 / Ips6404 PSRAM Chips
+
+* I2C_MPU6050 - converted from (still work in progress) :
  -- https://bbs.21ic.com/icview-3129252-1-1.html
  -- https://www.risc-v1.com/thread-1625-1-1.html
 
