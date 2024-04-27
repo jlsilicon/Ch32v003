@@ -14,7 +14,7 @@ MounRiverStudio Ch32v003 :
 * GPIO_Toggle
 * SPI_PSRAM_BitBang : for Aps6404 / Ips6404 PSRAM Chips
 
-* I2C_MPU6050 - converted from (still work in progress) :
+* I2C_MPU6050 - converted from :
  -- https://bbs.21ic.com/icview-3129252-1-1.html
  -- https://www.risc-v1.com/thread-1625-1-1.html
 
