@@ -13,10 +13,10 @@ MounRiverStudio Ch32v003 :
 * ADC_Ex
 * GPIO_Toggle
 * SPI_PSRAM_BitBang : for Aps6404 / Ips6404 PSRAM Chips
-
 * I2C_MPU6050 - converted from :
  -- https://bbs.21ic.com/icview-3129252-1-1.html
  -- https://www.risc-v1.com/thread-1625-1-1.html
+* I2C_Mpu6050_Hmc5883_Qmc5883 - works with Mpu6050 + Hmc5883 + Qmc5883 
 
 -- These need to be created as Projects on IDE - then drop the main.c files into the /projectname/User/.
 
