@@ -17,7 +17,8 @@ MounRiverStudio Ch32v003 :
  -- https://bbs.21ic.com/icview-3129252-1-1.html
  -- https://www.risc-v1.com/thread-1625-1-1.html
 * I2C_Mpu6050_Hmc5883_Qmc5883 - works with Mpu6050 + Hmc5883 + Qmc5883 
-
+* SPI_SDCARD_PFF_LinuxEx - limited to read/write existing files, writing to file is limited to pre-saved file size 
+  
 -- These need to be created as Projects on IDE - then drop the main.c files into the /projectname/User/.
 
 #
